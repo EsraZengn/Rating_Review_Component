@@ -89,7 +89,7 @@ const RatingAndReview = ({ isAuthorized, userId }) => {
   const handleSendBtnClick = () => {
     localStorage.setItem('ratingsAndReviews', JSON.stringify(ratingsAndReviews));
     setSavedRatingAndReviews(JSON.parse(localStorage.getItem('ratingsAndReviews')));
-    setRating(Number(calculateRatingAverage(savedRatingsAndReviews)));
+    setRating(Number(calculateRatingAverage(ratingsAndReviews)));
     setReview('');
   };
 
@@ -144,7 +144,7 @@ const RatingAndReview = ({ isAuthorized, userId }) => {
                         {new Date(item.date).toLocaleDateString()}
                       </Typography>
                     </div>
-                    <Typography  className={classes.typography} gutterBottom  >
+                    <Typography className={classes.typography} gutterBottom>
                       {item.review}
                     </Typography>
                     <Divider className={classes.divider} />
