@@ -1,0 +1,72 @@
+$align-center: center;
+
+.flex-display {
+  display: flex;
+  align-items: $align-center;
+  justify-content: $align-center;
+}
+
+/***********  Defined screen sizes **************/
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+/***********  Defined mixins for media queries **************/
+
+/* A mixin lets us make groups of CSS declarations that we want to reuse throughout our site. 
+To create a mixin we use the @mixin directive and give it a name.
+After we create we mixin, we can then use it as a CSS declaration starting with @include 
+followed by the name of the mixin.*/
+
+@mixin sm {
+  @media (min-width: $screen-sm-min) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: $screen-md-min) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $screen-lg-min) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $screen-xl-min) {
+    @content;
+  }
+}
+
+/***********  Set width property of paper class for each media  **************/
+
+.paper {
+  @include sm {
+    width: 95%;
+  }
+
+  @include md {
+    width: 70%;
+  }
+
+  @include lg {
+    width: 60%;
+  }
+
+  @include xl {
+    width: 50%;
+  }
+}
